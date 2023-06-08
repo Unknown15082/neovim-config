@@ -13,10 +13,11 @@ opt.relativenumber = true
 opt.conceallevel = 3
 opt.cursorline = true
 opt.laststatus = 0
--- opt.showmode = false
+opt.showmode = false
 opt.pumblend = 10
 opt.pumheight = 10
 opt.shortmess:append({ c = true, I = true })
+opt.signcolumn = "yes"
 
 -- Searching
 opt.ignorecase = true
