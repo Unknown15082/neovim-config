@@ -26,7 +26,11 @@ return {
 					{ "diagnostic" },
 				},
 				lualine_z = { "location" },
-			}
+			},
+			extensions = {
+				"neo-tree",
+				"lazy",
+			},
 		}
 	end,
 }
