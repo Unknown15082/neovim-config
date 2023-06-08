@@ -48,6 +48,20 @@ return {
 				end,
 				desc = "Search keybinds",
 			},
+			{
+				"<leader>sg",
+				function()
+					require("telescope.builtin").live_grep()
+				end,
+				desc = "Search (Grep)",
+			},
+			{
+				"<leader>sw",
+				function()
+					require("telescope.builtin").grep_string()
+				end,
+				desc = "Search word",
+			},
 			-- LSP
 		},
 
