@@ -26,6 +26,14 @@ return {
 				end,
 				desc = "Find files (home)",
 			},
+			-- UI
+			{
+				"<leader>ss",
+				function()
+					require("telescope.builtin").colorscheme()
+				end,
+				desc = "Search colorscheme",
+			},
 			-- Search
 			{
 				"<leader>sb",

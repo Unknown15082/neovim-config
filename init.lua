@@ -2,5 +2,5 @@ require("core.keybinds")
 require("core.lazy")
 require("core.options")
 
-vim.cmd.colorscheme "tokyonight"
+vim.cmd.colorscheme "catppuccin-mocha"
 
