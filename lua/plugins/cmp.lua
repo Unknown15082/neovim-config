@@ -5,9 +5,14 @@ return {
 
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-nvim-lua",
 		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
 		"saadparwaiz1/cmp_luasnip",
+		"kdheepak/cmp-latex-symbols",
+		"ray-x/cmp-treesitter",
+
+		"L3MON4D3/LuaSnip",
+		"onsails/lspkind.nvim",
 	},
 
 	opts = function()
@@ -30,7 +35,11 @@ return {
 				end,
 			},
 			window = {
-				completion = cmp.config.window.bordered(),
+				completion = vim.tbl_deep_extend(
+					"force",
+					cmp.config.window.bordered(),
+					{ scrollbar = false }
+				),
 				documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
@@ -64,8 +73,26 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "buffer" },
-				{ name = "path" },
+				{ name = "treesitter" },
+				{ name = "latex_symbols" },
+				{ name = "nvim_lua" },
 			}),
+
+			formatting = {
+				format = require("lspkind").cmp_format({
+					mode = "symbol_text",
+					maxwidth = 70,
+					ellipsis_char = "...",
+					menu = {
+						buffer = "[BUF]",
+						nvim_lsp = "[LSP]",
+						luasnip = "[SNIP]",
+						nvim_lua = "[LUA]",
+						treesitter = "[TREE]",
+						latex_symbols = "[TEX]",
+					}
+				})
+			}
 		}
 	end,
 }
