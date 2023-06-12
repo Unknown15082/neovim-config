@@ -9,7 +9,6 @@ return {
 		"hrsh7th/cmp-buffer",
 		"saadparwaiz1/cmp_luasnip",
 		"kdheepak/cmp-latex-symbols",
-		"ray-x/cmp-treesitter",
 
 		"L3MON4D3/LuaSnip",
 		"onsails/lspkind.nvim",
@@ -73,7 +72,6 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "buffer" },
-				{ name = "treesitter" },
 				{ name = "latex_symbols" },
 				{ name = "nvim_lua" },
 			}),
@@ -81,16 +79,45 @@ return {
 			formatting = {
 				format = require("lspkind").cmp_format({
 					mode = "symbol_text",
-					maxwidth = 70,
-					ellipsis_char = "...",
 					menu = {
 						buffer = "[BUF]",
 						nvim_lsp = "[LSP]",
 						luasnip = "[SNIP]",
 						nvim_lua = "[LUA]",
-						treesitter = "[TREE]",
 						latex_symbols = "[TEX]",
-					}
+					},
+
+					symbol_map = {
+						Class = "󰠱",
+						Color = "󰏘",
+						Constant = "󰏿",
+						Constructor = "",
+						Enum = "",
+						EnumMember = "",
+						Event = "",
+						Field = "󰇽",
+						File = "󰈙",
+						Folder = "󰉋",
+						Function = "󰊕",
+						Interface = "",
+						Keyword = "󰌋",
+						Method = "󰆧",
+						Module = "",
+						Namespace = "󰌗",
+						Number = "",
+						Operator = "󰆕",
+						Package = "",
+						Property = "󰜢",
+						Reference = "",
+						Snippet = "",
+						Struct = "",
+						Text = "󰉿",
+						TypeParameter = "󰅲",
+						Undefined = "",
+						Unit = "",
+						Value = "󰎠",
+						Variable = "",
+					},
 				})
 			}
 		}
