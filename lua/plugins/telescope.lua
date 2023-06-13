@@ -83,6 +83,14 @@ return {
 
 		opts = {
 			defaults = {
+				layout_strategy = "horizontal",
+				layout_config = {
+					horizontal = {
+						prompt_position = "top",
+					},
+				},
+				sorting_strategy = "ascending",
+
 				prompt_prefix = " ",
 				selection_caret = " ",
 				file_ignore_patterns = { ".git/", "%.png" },
@@ -113,7 +121,6 @@ return {
 				file_browser = {
 					git_status = true,
 					use_fd = true,
-					hijack_netrw = true,
 
 					hidden = {
 						file_browser = true,
@@ -129,11 +136,8 @@ return {
 			},
 		},
 		config = function(_, opts)
-			opts = vim.tbl_deep_extend(
-				"force",
-				vim.deepcopy(opts).extensions.file_browser.mappings,
-				{
-					["n"] = {
+			local map = {
+				["n"] = {
 						["a"] = require "telescope".extensions.file_browser.actions.create, -- [A]dd
 						["r"] = require "telescope".extensions.file_browser.actions.rename, -- [R]ename
 						["m"] = require "telescope".extensions.file_browser.actions.move,   -- [M]ove
@@ -148,7 +152,12 @@ return {
 						["h"] = require "telescope".extensions.file_browser.actions.toggle_hidden, -- [H]idden
 						["s"] = require "telescope".extensions.file_browser.actions.toggle_all, -- default
 					},
-				}
+			}
+
+			opts = vim.tbl_deep_extend(
+				"force",
+				vim.deepcopy(opts),
+				{ extensions = { file_browser = { mappings = map } } }
 			)
 			require("telescope").setup(opts)
 
