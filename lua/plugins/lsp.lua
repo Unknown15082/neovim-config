@@ -5,12 +5,8 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			{ 
-				"hrsh7th/cmp-nvim-lsp",
-				cond = function()
-					return require("lazy.core.config").plugins["nvim-cmp"]
-				end,
-			}
+			"hrsh7th/nvim-cmp",
+			"hrsh7th/cmp-nvim-lsp",
 		},
 		opts = {
 			diagnostics = {
@@ -22,13 +18,13 @@ return {
 		config = function(_, opts)
 			local lspconfig = require('lspconfig')
 			local capabilities = lspconfig.util.default_config.capabilities
-			-- capabilities = vim.tbl_deep_extend(
-			-- 	'force',
-			-- 	capabilites,
-			-- 	require("cmp-nvim-lsp").default_capabilities()
-			-- )
+			capabilities = vim.tbl_deep_extend(
+				"force",
+				capabilities,
+				require("cmp_nvim_lsp").default_capabilities()
+			)
 			
-			vim.keymap.set("n", "<Space>d", vim.diagnostic.open_float)
+			vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 
