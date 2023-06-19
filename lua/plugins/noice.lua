@@ -3,8 +3,28 @@ return {
 	event = "VeryLazy",
 	dependencies = {
 		"MunifTanjim/nui.nvim",
-		"rcarriga/nvim-notify",
+		{
+			"rcarriga/nvim-notify",
+			opts = {
+				background_colour = "#000000",
+			}
+		},
 		"nvim-treesitter/nvim-treesitter",
+	},
+	keys = {
+		{
+			"<leader>nh",
+			function()
+				require("noice").cmd("history")
+			end,
+			desc = "NoiceHistory"
+		},
+		{
+			"<leader>nd",
+			function()
+				require("noice").cmd("dismiss")
+			end,
+		},
 	},
 	opts = {
 		lsp = {
