@@ -6,6 +6,11 @@ return {
 		local icons = require("lazyvim.config").icons
 
 		return {
+			options = {
+				theme = "auto",
+				globalstatus = true,
+				disabled_filetypes = { statusline = { "dashboard", "alpha" } },
+			},
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "branch" },
@@ -40,6 +45,7 @@ return {
 					{ "location", padding = { left = 0, right = 1 } },
 				},
 			},
+			extensions = { "neo-tree", "lazy" },
 		}
 	end,
 }
