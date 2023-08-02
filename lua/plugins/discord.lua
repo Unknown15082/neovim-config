@@ -4,8 +4,11 @@ return {
 	"andweeb/presence.nvim",
 	opts = {
 		-- General options
+		auto_update = true,
 		neovim_image_text = "Neovim",
+		main_image = "neovim",
 		enable_line_number = true,
+		show_time = true,
 
 		-- Text options
 		editing_text = "Nuking %s",
