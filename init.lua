@@ -1,6 +1,2 @@
-require("core.keybinds")
-require("core.lazy")
-require("core.options")
-
-vim.cmd.colorscheme "catppuccin-mocha"
-
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")

@@ -1,28 +1,48 @@
 return {
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = { style = "night" },
-	},
+	-- Catppuccin colorscheme
 	{
 		"catppuccin/nvim",
-		lazy = false,
 		name = "catppuccin",
-		priority = 1000,
+
+		lazy = true,
 		opts = {
-			-- color_overrides = {
-			-- 	mocha = {
-			-- 		base = "#000000",
-			-- 		mantle = "#000000",
-			-- 		crust = "#000000",
-			-- 	},
-			-- },	
+			integrations = {
+				alpha = true,
+				cmp = true,
+				flash = true,
+				gitsigns = true,
+				illuminate = true,
+				indent_blankline = { enabled = true },
+				lsp_trouble = true,
+				mason = true,
+				mini = true,
+				native_lsp = {
+					enabled = true,
+					underlines = {
+						errors = { "undercurl" },
+						hints = { "undercurl" },
+						warnings = { "undercurl" },
+						information = { "undercurl" },
+					},
+				},
+				navic = { enabled = true, custom_bg = "lualine" },
+				neotest = true,
+				noice = true,
+				notify = true,
+				neotree = true,
+				semantic_tokens = true,
+				telescope = true,
+				treesitter = true,
+				which_key = true,
+			},
 		},
 	},
+
+	-- Set default colorscheme
 	{
-		"rebelot/kanagawa.nvim",
-		lazy = false,
-		priority = 1000,
+		"LazyVim/LazyVim",
+		opts = {
+			colorscheme = "tokyonight-night",
+		},
 	},
 }
