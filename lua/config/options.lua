@@ -4,6 +4,9 @@
 
 local opt = vim.opt
 
+-- Set localleader to <Space>
+vim.g.maplocalleader = " "
+
 -- Use tabs instead of spaces
 opt.expandtab = false
 
